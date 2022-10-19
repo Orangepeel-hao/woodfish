@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        .banner{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50vmin) translateY(-50vmin);
+            text-align: center;
+        }
+        .halo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: all 1s;
+        }.e{
+            width: 85vmin;
+            height: 85vmin;
+            z-index: 6;
+        }.d{
+            width: 93vmin;
+            height: 93vmin;
+            z-index: 5;
+        }.c{
+            width: 97vmin;
+            height: 97vmin;
+            z-index: 4;
+        }.b{
+            width: 99vmin;
+            height: 99vmin;
+            z-index: 3;
+        }.a{
+            width: 100vmin;
+            height: 100vmin;
+            z-index: 2;
+        }
+        .center{
+            margin: 2.5vmin;
+            width: 69vmin;
+            height: 69vmin;
+            border-radius: 50%;
+            z-index: 7;
+        }
+        .num{
+            display: block;
+            width: 300px;
+            position: fixed;
+            top: 10vmin;
+            left: calc(50vmin - 150px);
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+            z-index: 7;
+        }
+    </style>
+</head>
+<body>
+    <span class="num"></span>
+    <div class="banner">
+        <div class="halo a">
+            <div class="halo b">
+                <div class="halo c">
+                    <div class="halo d">
+                        <div class="halo e">
+                            <img class="center" src="fish.webp">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <audio src="woodfish.mp3"></audio>
+    </div>
+</body>
+    <script>
+        let merits=0
+        let j=0
+        let span=document.querySelector('span')
+        let mp3=document.querySelector('audio')
+        let halo=document.querySelectorAll('.halo')
+        // 光晕动画
+        setInterval(()=>{
+            j<4?j++:j=0
+            for(let i=0;i<5;i++){
+                halo[i].style.background='rgba(0,0,0)'
+            }
+            halo[4-j].style.background=`rgba(255,255,255,0.5)`
+        },500)
+        document.querySelector('img').onclick=()=>{
+            //功德加1
+            merits++
+            //把功德置于木鱼上方
+            span.innerHTML=`功德:${merits}`
+            mp3.play()
+        }
+    </script>
+</html>
