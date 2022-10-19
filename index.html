@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>数字化木鱼</title>
+    <link rel="shortcut icon" href="https://cas.pxc.jx.cn/lyuapServer/favicon.ico" type="image/x-icon">
     <style>
         body{
             background-color: #000;
@@ -25,45 +26,56 @@
         }.e{
             width: 85vmin;
             height: 85vmin;
-            z-index: 6;
         }.d{
             width: 93vmin;
             height: 93vmin;
-            z-index: 5;
         }.c{
             width: 97vmin;
             height: 97vmin;
-            z-index: 4;
         }.b{
             width: 99vmin;
             height: 99vmin;
-            z-index: 3;
         }.a{
             width: 100vmin;
             height: 100vmin;
-            z-index: 2;
         }
         .center{
             margin: 2.5vmin;
             width: 69vmin;
             height: 69vmin;
             border-radius: 50%;
-            z-index: 7;
         }
         .num{
             display: block;
             width: 300px;
             position: fixed;
             top: 10vmin;
-            left: calc(50vmin - 150px);
+            left: calc(50% - 150px);
             color: #fff;
-            font-size: 30px;
+            font-size: 10vmin;
             text-align: center;
-            z-index: 7;
+            z-index: 2;
+        }
+        .solgan{
+            position: fixed;
+            bottom: 10vmin;
+            width: 100%;
+            font-size: 10vmin;
+            font-weight: 999;
+            color: rgba(251,215,0,1);
+            text-align: center;
+        }
+        .img{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 20vmin;
+            height: 20vmin;
         }
     </style>
 </head>
 <body>
+    <img class="img" src="https://cas.pxc.jx.cn/lyuapServer/favicon.ico">
     <span class="num"></span>
     <div class="banner">
         <div class="halo a">
@@ -79,13 +91,18 @@
         </div>
         <audio src="woodfish.mp3"></audio>
     </div>
+    <span class="solgan">
+        都什么年代了,还在敲传统木鱼
+    </span>
 </body>
     <script>
-        let merits=0
+        let merits=localStorage.getItem('merits')||0
         let j=0
         let span=document.querySelector('span')
         let mp3=document.querySelector('audio')
         let halo=document.querySelectorAll('.halo')
+        span.innerHTML=`功德:${merits}`
+        mp3.playbackRate=2
         // 光晕动画
         setInterval(()=>{
             j<4?j++:j=0
@@ -94,11 +111,11 @@
             }
             halo[4-j].style.background=`rgba(255,255,255,0.5)`
         },500)
-        document.querySelector('img').onclick=()=>{
+        document.querySelector('img')[1].onclick=()=>{
             //功德加1
-            merits++
+            localStorage.setItem('merits',++merits)
             //把功德置于木鱼上方
-            span.innerHTML=`功德:${merits}`
+            span.innerHTML=`功德:${localStorage.getItem('merits')}`
             mp3.play()
         }
     </script>
