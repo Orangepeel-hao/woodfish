@@ -104,7 +104,8 @@
             }
             halo[4-j].style.background=`rgba(255,255,255,0.5)`
         },500)
-        document.querySelectorAll('img')[1].onclick=()=>{
+        document.querySelector('.center').onclick=()=>{
+            console.log('1:',1);
             //功德加1
             localStorage.setItem('merits',++merits)
             //把功德置于木鱼上方
