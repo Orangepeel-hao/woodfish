@@ -1,122 +1,5 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数字化木鱼</title>
-    <link rel="shortcut icon" href="https://cas.pxc.jx.cn/lyuapServer/favicon.ico" type="image/x-icon">
-    <style>
-        body{
-            background-color: #000;
-        }
-        .banner{
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50vmin) translateY(-50vmin);
-            text-align: center;
-        }
-        .halo{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            transition: all 1s;
-        }.e{
-            width: 85vmin;
-            height: 85vmin;
-        }.d{
-            width: 93vmin;
-            height: 93vmin;
-        }.c{
-            width: 97vmin;
-            height: 97vmin;
-        }.b{
-            width: 99vmin;
-            height: 99vmin;
-        }.a{
-            width: 100vmin;
-            height: 100vmin;
-        }
-        .center{
-            margin: 2.5vmin;
-            width: 69vmin;
-            height: 69vmin;
-            border-radius: 50%;
-        }
-        .num{
-            display: block;
-            width: 300px;
-            position: fixed;
-            top: 10vmin;
-            left: calc(50% - 150px);
-            color: #fff;
-            font-size: 10vmin;
-            text-align: center;
-            z-index: 2;
-        }
-        .solgan{
-            position: fixed;
-            bottom: 20vmin;
-            width: 100%;
-            font-size: 6vmin;
-            font-weight: 999;
-            color: rgba(251,215,0,1);
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <span class="num"></span>
-    <div class="banner">
-        <div class="halo a">
-            <div class="halo b">
-                <div class="halo c">
-                    <div class="halo d">
-                        <div class="halo e">
-                            <img class="center" src="fish.webp">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <audio src="woodfish.mp3"></audio>
-    </div>
-    <span class="solgan">
-        <img style="vertical-align: middle;width: 10vmin;height: 10vmin;" src="https://cas.pxc.jx.cn/lyuapServer/favicon.ico">
-        :都什么年代了,还在敲传统木鱼
-    </span>
-</body>
-    <script>
-        let merits=localStorage.getItem('merits')||0
-        let j=0
-        let span=document.querySelector('span')
-        let mp3=document.querySelector('audio')
-        let halo=document.querySelectorAll('.halo')
-        span.innerHTML=`功德:${merits}`
-        mp3.playbackRate=2
-        // 光晕动画
-        setInterval(()=>{
-            j<4?j++:j=0
-            for(let i=0;i<5;i++){
-                halo[i].style.background='rgba(0,0,0)'
-            }
-            halo[4-j].style.background=`rgba(255,255,255,0.5)`
-        },500)
-        document.querySelector('.center').onclick=()=>{
-            console.log('1:',1);
-            //功德加1
-            localStorage.setItem('merits',++merits)
-            //把功德置于木鱼上方
-            span.innerHTML=`功德:${localStorage.getItem('merits')}`
-            mp3.play()
-        }
-    </script>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -226,16 +109,10 @@
 </body>
 <script>
     let merits = localStorage.getItem('merits') || 0
-    let rate = 0
-    let timeid = []
     let span = document.querySelector('span')
     let mp3 = document.querySelector('audio')
     span.innerHTML = `功德:${merits}`
     mp3.playbackRate = 2
-    // 光晕动画
-    setInterval(function () {
-        rate = 0;
-    }, 2000)
     document.querySelector('.center').onclick = function () {
         //功德加1
         localStorage.setItem('merits', ++merits);
